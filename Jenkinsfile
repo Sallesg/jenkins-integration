@@ -6,11 +6,21 @@ pipeline {
     }
 
     stages {
+        stage('Check Node and NPM') {
+            steps {
+                script {
+                    
+                    sh 'node -v'
+                    sh 'npm -v'
+                }
+            }
+        }
 
         stage('Install pnpm') {
             steps {
                 script {
-                    sh 'npm install -g pnpm'
+                    
+                    sh 'curl -fsSL https://get.pnpm.io/install.sh | bash -'
                 }
             }
         }
@@ -18,8 +28,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'pnpm -v'
-                    sh 'pnpm install'
+                    sh 'pnpm -v'  
+                    sh 'pnpm install'  
                 }
             }
         }
@@ -27,7 +37,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'pnpm test'
+                    sh 'pnpm test'  
                 }
             }
         }
