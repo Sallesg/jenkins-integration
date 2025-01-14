@@ -1,11 +1,24 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/opt/homebrew/bin/pnpm:$PATH"  
+    }
+
     stages {
+
+        stage('Install pnpm') {
+            steps {
+                script {
+                    sh 'npm install -g pnpm'
+                }
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
                 script {
+                    sh 'pnpm -v'
                     sh 'pnpm install'
                 }
             }
