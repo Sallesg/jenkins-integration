@@ -2,14 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('enable corepack') {
-            steps {
-                script {
-                    sh 'corepack enable pnpm'
-                }
-            }
-        }
-
         stage('Install pnpm') {
             steps {
                 script {
