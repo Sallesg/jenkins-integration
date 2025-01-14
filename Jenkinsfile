@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Install pnpm') {
+            steps {
+                script {
+                    sh 'npm install -g pnpm'
+                }
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 script {
