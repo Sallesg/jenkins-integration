@@ -1,34 +1,15 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/opt/homebrew/bin/pnpm:$PATH"  
+      tools {
+        nodejs 'Node 23.6.0'  
     }
 
     stages {
-        stage('Check Node and NPM') {
-            steps {
-                script {
-                    
-                    sh 'node -v'
-                    sh 'npm -v'
-                }
-            }
-        }
-
-        stage('Install pnpm') {
-            steps {
-                script {
-                    
-                    sh 'curl -fsSL https://get.pnpm.io/install.sh | bash -'
-                }
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'pnpm -v'  
                     sh 'pnpm install'  
                 }
             }
