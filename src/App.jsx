@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <h1>Vite React</h1>
-      <Button onClick={calculateSum(2, 3)}>Click Me</Button>
+      <Button onClick={() => calculateSum(2, 3)}>Click Me</Button>
     </div>
   );
 }
