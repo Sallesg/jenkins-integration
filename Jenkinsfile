@@ -7,6 +7,12 @@ pipeline {
 
     stages {
 
+      stage('Checkout Source') {
+            steps {
+                git url: 'https://github.com/Sallesg/jenkins-integration', branch: 'main'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 script {
