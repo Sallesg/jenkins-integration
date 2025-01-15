@@ -24,7 +24,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'pnpm test'  
+                    sh 'pnpm test -- --ci'  
                 }
             }
         }
